@@ -1,0 +1,14 @@
+<p>These are Scans</p>
+
+<md-input-container class="filter-input">
+  <label>Filter by Status</label>
+  <input type="text" ng-model="filterText" md-maxlength="20">
+</md-input-container>
+
+<md-button class="md-primary md-raised" ng-click="orderByID()">Order by ID</md-button>
+<md-button class="md-primary md-raised" ng-click="orderByStatus()">Order by Status</md-button>
+
+<div ng-repeat="scan in scans | orderBy:orderBy | filter:filterText">
+	{{scan.repo_id}} - {{scan.status}}
+</div>
+
